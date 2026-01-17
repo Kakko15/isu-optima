@@ -56,4 +56,15 @@ app.get('/api/PredictDemand', async (req, res) => {
   });
 });
 
+app.post('/api/RequestID', async (req, res) => {
+  const { studentId, reason } = req.body;
+  
+  const { data, error } = await supabase
+    .from('Requests')
+    .insert([{ studentId, reason }]);
+
+  if (error) return res.status(400).json({ error: error.message });
+  res.json({ success: true, data });
+});
+
 app.listen(5000, () => console.log('Server running on port 5000'));
