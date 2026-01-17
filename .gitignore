@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Environment Variables (Protect your Supabase Keys)
+.env
+**/.env
+
+# Build files
+dist
+build
+.DS_Store
